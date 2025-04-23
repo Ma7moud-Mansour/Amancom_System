@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - Amancom</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f9f9fb;
+      color: #1f2d3d;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #121d2f;
+      padding: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sidebar h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+    .sidebar a:hover {
+      background-color: #243b5e;
+    }
+    .sidebar a i {
+      font-style: normal;
+      background: #fff2;
+      padding: 5px 8px;
+      border-radius: 6px;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .main h1 {
+      font-size: 30px;
+    }
+    .user-info {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card h3 {
+      font-size: 16px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h3 i {
+      font-style: normal;
+      background: #eee;
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .card p {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .card.alert {
+      border: 2px solid red;
+      color: red;
+    }
+
+    .alerts, .graph {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .alerts h2, .graph h2 {
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      text-align: right;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>لوحة التحكم</h2>
+    <a href="#"><i>📦</i> إدارة الأجهزة</a>
+    <a href="#"><i>📶</i> إدارة الشرائح</a>
+    <a href="#"><i>👥</i> العملاء</a>
+    <a href="#"><i>💳</i> الاشتراكات</a>
+    <a href="#"><i>💰</i> المدفوعات</a>
+    <a href="#"><i>🔔</i> التنبيهات</a>
+    <a href="#"><i>🛠️</i> المستخدمين</a>
+    <a href="#"><i>🚪</i> تسجيل الخروج</a>
+  </aside>
+
+  <main class="main">
+    <div class="main-header">
+      <h1>لوحة التحكم</h1>
+      <div class="user-info">مرحباً، <strong>محمود عبدالكريم</strong> 👋</div>
+    </div>
+
+    <section class="stats">
+      <div class="card">
+        <h3><i>📡</i> الأجهزة المتاحة</h3>
+        <p>250</p>
+      </div>
+      <div class="card">
+        <h3><i>📲</i> الشرائح المتوفرة</h3>
+        <p>180</p>
+      </div>
+      <div class="card">
+        <h3><i>👤</i> العملاء</h3>
+        <p>120</p>
+      </div>
+      <div class="card alert">
+        <h3><i>⏰</i> الاشتراكات المنتهية</h3>
+        <p>15</p>
+      </div>
+    </section>
+
+    <section class="alerts">
+      <h2>التنبيهات</h2>
+      <table>
+        <tr>
+          <th>العميل</th>
+          <th>البيان</th>
+          <th>التنبيه</th>
+        </tr>
+        <tr>
+          <td>أحمد عبدالسلام</td>
+          <td>#4567</td>
+          <td>قرب انتهاء اشتراك</td>
+        </tr>
+        <tr>
+          <td>محمود يوسف</td>
+          <td>---</td>
+          <td>انخفاض في كمية الشرائح</td>
+        </tr>
+        <tr>
+          <td>منة الله محمد</td>
+          <td>---</td>
+          <td>دفعة لم يتم تسديدها</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="graph">
+      <h2>إحصائيات الاشتراكات</h2>
+      <canvas id="subscriptionChart" height="100"></canvas>
+    </section>
+  </main>
+
+  <script>
+    const ctx = document.getElementById('subscriptionChart').getContext('2d');
+    const subscriptionChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['1 إبريل', '5 إبريل', '10 إبريل', '15 إبريل', '20 إبريل'],
+        datasets: [{
+          label: 'اشتراكات جديدة',
+          data: [12, 19, 7, 14, 22],
+          borderColor: '#007bff',
+          backgroundColor: 'rgba(0, 123, 255, 0.1)',
+          tension: 0.4,
+          fill: true,
+          pointRadius: 4,
+          pointHoverRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
