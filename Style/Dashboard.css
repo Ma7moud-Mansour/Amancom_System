@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f9f9fb;
+    color: #1f2d3d;
+  }
+  .sidebar {
+    width: 240px;
+    background-color: #121d2f;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+  }
+  .sidebar a:hover {
+    background-color: #243b5e;
+  }
+  .sidebar a i {
+    font-style: normal;
+    background: #fff2;
+    padding: 5px 8px;
+    border-radius: 6px;
+  }
+  .main {
+    flex: 1;
+    padding: 30px;
+  }
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  .main h1 {
+    font-size: 30px;
+  }
+  .user-info {
+    font-size: 16px;
+    color: #444;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card h3 {
+    font-size: 16px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 i {
+    font-style: normal;
+    background: #eee;
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .card p {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  .card.alert {
+    border: 2px solid red;
+    color: red;
+  }
+  .alerts, .graph {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  }
+  .alerts h2, .graph h2 {
+    margin-bottom: 15px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+  }
+  canvas {
+    max-width: 100%;
+  }
+  
