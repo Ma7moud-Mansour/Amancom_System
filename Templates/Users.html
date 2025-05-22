@@ -1,89 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إدارة المستخدمين - Amancom</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../Style/Dashboard.css">
-  <link rel="stylesheet" href="../Style/Users.css">
-</head>
-<body>
-  <aside class="sidebar">
-    <h2>لوحة التحكم</h2>
-    <a href="Device.html"><i>📦</i> إدارة الأجهزة</a>
-    <a href="sim.html"><i>📶</i> إدارة الشرائح</a>
-    <a href="Users.html"><i>👥</i> العملاء</a>
-    <a href="Subscription.html"><i>💳</i> الاشتراكات</a>
-    <a href="payment.html"><i>💰</i> المدفوعات</a>
-    <a href="Notifications.html"><i>🔔</i> التنبيهات</a>
-    <a href="Users.html"><i>🛠️</i> المستخدمين</a>
-    <a href="#"><i>🚪</i> تسجيل الخروج</a>
-  </aside>
-
-  <main class="main">
-    <div class="main-header">
-      <h1>إدارة المستخدمين</h1>
-      <div class="user-info">مرحباً، <strong>محمود عبدالكريم</strong> 👋</div>
-    </div>
-
-    <div class="top-bar">
-      <input type="text" placeholder="ابحث باسم المستخدم أو النوع..." />
-      <button id="addUserBtn">➕ إضافة مستخدم</button>
-    </div>
-
-    <section class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>الاسم</th>
-            <th>البريد الإلكتروني</th>
-            <th>النوع</th>
-            <th>تاريخ الإنضمام</th>
-            <th>الخيارات</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>أحمد عبدالسلام</td>
-            <td>ahmed@example.com</td>
-            <td>Admin</td>
-            <td>2025-01-01</td>
-            <td>
-              <button class="edit">✏️</button>
-              <button class="delete">🗑️</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <div class="modal hidden" id="userModal">
-      <form>
-        <h2>إضافة مستخدم جديد</h2>
-        <label>الاسم:</label>
-        <input type="text" required />
-
-        <label>البريد الإلكتروني:</label>
-        <input type="email" required />
-
-        <label>كلمة المرور:</label>
-        <input type="password" required />
-
-        <label>النوع:</label>
-        <select>
-          <option>Admin</option>
-          <option>User</option>
-        </select>
-
-        <div class="modal-actions">
-          <button type="submit" class="save">حفظ</button>
-          <button type="button" id="cancelUserModal" class="cancel">إلغاء</button>
-        </div>
-      </form>
-    </div>
-  </main>
-
-  <script src="../JS/Users.js"></script>
-</body>
-</html>

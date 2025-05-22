@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// لو مش عامل تسجيل دخول يرجعه للوجين
+if (!isset($_SESSION['user'])) {
+    header("Location: Login.php");
+    exit;
+}
+
+// تحقق من صلاحيات الدور
+$role = $_SESSION['user']['role'];
+if ($role !== 'Owner' && $role !== 'Admin') {
+    // لو مش Owner ولا Admin يتم منعه
+    echo "🚫 لا تملك صلاحية الوصول لهذه الصفحة.";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -11,14 +28,14 @@
 <body>
   <aside class="sidebar">
     <h2>لوحة التحكم</h2>
-    <a href="Device.html"><i>📦</i> إدارة الأجهزة</a>
-    <a href="sim.html"><i>📶</i> إدارة الشرائح</a>
-    <a href="Users.html"><i>👥</i> العملاء</a>
-    <a href="Subscription.html"><i>💳</i> الاشتراكات</a>
-    <a href="payment.html"><i>💰</i> المدفوعات</a>
-    <a href="Notifications.html"><i>🔔</i> التنبيهات</a>
-    <a href="Users.html"><i>🛠️</i> المستخدمين</a>
-    <a href="#"><i>🚪</i> تسجيل الخروج</a>
+    <a href="Device.php"><i>📦</i> إدارة الأجهزة</a>
+    <a href="sim.php"><i>📶</i> إدارة الشرائح</a>
+    <a href="Users.php"><i>👥</i> العملاء</a>
+    <a href="Subscription.php"><i>💳</i> الاشتراكات</a>
+    <a href="payment.php"><i>💰</i> المدفوعات</a>
+    <a href="Notifications.php"><i>🔔</i> التنبيهات</a>
+    <a href="User_Management.php"><i>🛠️</i> المستخدمين</a>
+    <a href="../api/logout.php"><i>🚪</i> تسجيل الخروج</a>
   </aside>
 
   <main class="main">
